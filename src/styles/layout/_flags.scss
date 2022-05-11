@@ -1,0 +1,12 @@
+.flags{
+    padding-bottom: 3rem;
+}
+.flags-grid{
+    width: 100%;
+    display: grid;
+    gap: 3.5rem;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
+    justify-items: center;
+    align-items: center;
+}

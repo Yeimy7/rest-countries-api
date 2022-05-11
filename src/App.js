@@ -7,15 +7,24 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <section className="form">
-        <div className="wrapper">
-          {/* <Search /> */}
-          <Filter/>
+      <section className='controls'>
+        <div className='wrapper'>
+          <div className='controls-grid'>
+            <Search />
+            <Filter />
+          </div>
         </div>
       </section>
-      <section className="main">
+      <section className="flags">
         <div className="wrapper">
-          <div className="main-grid">
+          <div className="flags-grid">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
             <Card />
           </div>
         </div>

@@ -9,7 +9,7 @@ export const Header = () => {
                         Where in the world?
                     </h1>
                     <div className='header-mode'>
-                        <i className="fa-solid fa-moon"></i>
+                        <i className="fa-regular fa-moon header-icon"></i>
                         <span> Dark Mode</span>
                     </div>
                 </div>

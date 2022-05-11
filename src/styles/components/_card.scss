@@ -1,12 +1,13 @@
 .card {
   background-color: $white;
-  width: 15rem;
+  font-size: $homePage;
+  width: 16.5rem;
 //   border: 1px solid red;
   border-radius: 0.5rem;
   overflow: hidden;
-  font-size: $homePage;
   font-weight: $light;
-  box-shadow: 0px 1px 25px -20px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 9px 0px rgba(0,0,0,0.05);
+
 }
 .card-info {
   padding-block: 1.5rem 2rem;
@@ -14,14 +15,15 @@
   font-size: 1rem;
 }
 .country-name {
-  font-size: 1.1rem;
-  font-weight: $bold;
-  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+  margin-bottom: .5rem;
 }
 
-.country-characteristics {
-  font-weight: $regular;
-  display: inline-block;
-  margin-right: 2px;
+.country-data {
+  font-size: .95rem;
+  display: block;
   margin-bottom: 0.5rem;
+}
+.country-data_label{
+  margin-right: 0.3rem;
 }

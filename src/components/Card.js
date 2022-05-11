@@ -9,24 +9,24 @@ export const Card = () => {
                     <h2 className='country-name'>
                         Germany
                     </h2>
-                    <p>
-                        <span className='country-characteristics'>
+                    <span className='country-data'>
+                        <strong className='country-data_label'>
                             Population:
-                        </span>
-                         81.770.900
-                    </p>
-                    <p>
-                        <span className='country-characteristics'>
+                        </strong>
+                        81.770.900
+                    </span>
+                    <span className='country-data'>
+                        <strong className='country-data_label'>
                             Region:
-                        </span>
-                         Europe
-                    </p>
-                    <p>
-                        <span className='country-characteristics'>
+                        </strong>
+                        Europe
+                    </span>
+                    <span className='country-data'>
+                        <strong className='country-data_label'>
                             Capital:
-                        </span>
-                         Berlin
-                    </p>
+                        </strong>
+                        Berlin
+                    </span>
                 </div>
             </div>
         </article>
