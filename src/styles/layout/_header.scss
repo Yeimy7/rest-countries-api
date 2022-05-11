@@ -1,0 +1,21 @@
+
+.header{
+    background-color: $white;
+    font-size: $detailPage;
+}
+.header-grid{
+    width: 100%;
+    height: 5rem;
+    // border: 1px solid blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-title{
+    font-size: 1.5rem;
+    font-weight: $bold;
+}
+.header-mode{
+    font-size: 1rem;
+    font-weight: $regular;
+}

@@ -1,0 +1,23 @@
+.btn{
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: $bold;
+    letter-spacing: 2px;
+    padding-block:1.1rem;
+    padding-inline: 2.4rem;
+    transition: background-color .3s ease;
+    // &:focus{
+    //     outline: none;
+    // }
+    // &:hover{
+    //     background-color: $grey;
+    //     color: $black;
+    // }
+}
+// .btn-primary{
+//     background-color: $black
+// }

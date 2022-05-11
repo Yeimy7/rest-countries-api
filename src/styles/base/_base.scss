@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+}
+html{
+  font-size: $detailPage;
+}
+body{
+  font-size: 1.5rem;
+  background-color: $veryLightGray;
+}
+
+img {
+  border: none;
+  display: block;
+  outline: none;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+input, select{
+  outline: none;
+}
+.wrapper{
+  padding-inline: 5rem;
+  // margin: 0 auto;
+}

@@ -1,0 +1,33 @@
+.search{
+    position: relative;
+}
+.input-wrapper {
+  position: relative;
+  width: 32rem;
+}
+.input {
+  color: #191919;
+  padding-block: 1rem;
+  padding-inline: 3.5rem 1rem;
+  width: 100%;
+  border-radius: .33rem;
+  box-shadow: 0px 2px 9px 0px rgba(0,0,0,0.05);
+  border: none;
+}
+.input-icon {
+  color: $darkGray;
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 1rem;
+    width: 1rem;
+    background-image: url('https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg');
+    filter: invert(70%);
+    
+}

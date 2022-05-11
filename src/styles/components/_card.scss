@@ -1,0 +1,27 @@
+.card {
+  background-color: $white;
+  width: 15rem;
+//   border: 1px solid red;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  font-size: $homePage;
+  font-weight: $light;
+  box-shadow: 0px 1px 25px -20px rgba(0,0,0,0.75);
+}
+.card-info {
+  padding-block: 1.5rem 2rem;
+  padding-inline: 1.7rem;
+  font-size: 1rem;
+}
+.country-name {
+  font-size: 1.1rem;
+  font-weight: $bold;
+  margin-bottom: 1.2rem;
+}
+
+.country-characteristics {
+  font-weight: $regular;
+  display: inline-block;
+  margin-right: 2px;
+  margin-bottom: 0.5rem;
+}
