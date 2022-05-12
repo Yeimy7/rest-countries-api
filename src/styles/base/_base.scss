@@ -17,7 +17,6 @@ body{
   font-size: 1rem;
   background-color: $veryLightGray;
 }
-
 img {
   border: none;
   display: block;
@@ -42,4 +41,8 @@ input, select{
 .wrapper{
   padding-inline: 5rem;
   // margin: 0 auto;
+}
+.App.dark-mode {
+  background-color: $veryDarkBlue;
+  color: $white;
 }

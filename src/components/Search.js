@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const Search = () => {
+export const Search = ({mode}) => {
     return (
         <form >
-            <div className='input-wrapper'>
+            <div className={`input-wrapper ${mode ? 'dark-mode' : ''}`}>
                 <input
                     type='search'
                     className='input'

@@ -3,6 +3,11 @@
   width: 12.5rem;
   position: relative;
 }
+.dropdown.dark-mode .dropdown-select,
+.dropdown.dark-mode .dropdown-list{
+  background-color: $darkBlue;
+  color: $white;
+}
 .dropdown .dropdown-list.click {
   opacity: 1;
   visibility: visible;
@@ -32,6 +37,7 @@
   padding-block: 1rem;
   padding-inline: 1.5rem;
 }
+
 .dropdown-list__item {
   padding-block: .4rem;
   font-size: .84rem;

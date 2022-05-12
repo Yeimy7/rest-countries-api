@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
-export const Filter = () => {
+export const Filter = ({mode}) => {
     const [click, setClick] = useState(false)
 
     const handleClick = () => {
         setClick(!click)
     }
     return (
-        <div className='dropdown'>
+        <div className={`dropdown ${mode ? 'dark-mode' : ''}`}>
             <div className='dropdown-select'>
                 <span className='select'>Filter by Region</span>
                 <i className='fa-solid fa-angle-down' onClick={handleClick}></i>

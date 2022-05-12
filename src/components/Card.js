@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const Card = () => {
+export const Card = ({mode}) => {
     return (
-        <article className='card'>
+        <article className={`card ${mode ? 'dark-mode' : ''}`}>
             <div className='card-grid'>
                 <img alt='country-flag' src='https://flagcdn.com/w320/de.png' />
                 <div className='card-info'>
