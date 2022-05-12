@@ -2,7 +2,6 @@ import React from 'react'
 
 export const Search = ({mode}) => {
     return (
-        <form >
             <div className={`input-wrapper ${mode ? 'dark-mode' : ''}`}>
                 <input
                     type='search'
@@ -15,6 +14,5 @@ export const Search = ({mode}) => {
                     <path fill="none" stroke="currentColor" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="32" d="M338.29 338.29L448 448"></path>
                 </svg>
             </div>
-        </form>
     )
 }

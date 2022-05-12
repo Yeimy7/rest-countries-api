@@ -16,6 +16,7 @@ html{
 body{
   font-size: 1rem;
   background-color: $veryLightGray;
+  color: $veryVeryDarkBlue;
 }
 img {
   border: none;
@@ -45,4 +46,9 @@ input, select{
 .App.dark-mode {
   background-color: $veryDarkBlue;
   color: $white;
+}
+@media screen and (max-width:550px) {
+  .wrapper{
+    padding-inline: 1.5rem;
+  }
 }

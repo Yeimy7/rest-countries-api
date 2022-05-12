@@ -2,6 +2,8 @@
 .dropdown {
   width: 12.5rem;
   position: relative;
+  border-radius: .4rem;
+  // overflow: hidden;
 }
 .dropdown.dark-mode .dropdown-select,
 .dropdown.dark-mode .dropdown-list{
@@ -14,7 +16,7 @@
 }
 .dropdown-select {
   padding: 1.3rem 1.5rem;
-  border-radius: 0.33rem;
+  border-radius: 0.4rem;
   background-color: $white;
   width: 100%;
   display: flex;
@@ -25,7 +27,7 @@
 }
 
 .dropdown-list {
-  border-radius: 0.33rem;
+  border-radius: 0.4rem;
   background-color: $white;
   position: absolute;
   top: 110%;

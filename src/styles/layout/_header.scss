@@ -25,4 +25,19 @@
 .header-icon {
   font-size: 1.2rem;
   transform: rotate(-27deg);
+  margin-right: .3rem;
+}
+@media screen and (max-width: 450px) {
+  .header-grid {
+    height: 6rem;
+  }
+  .header-title {
+    font-size: 1rem;
+  }
+  .header-mode {
+    font-size: .8rem;
+  }
+  .header-icon {
+    font-size: 1rem;
+  }
 }
