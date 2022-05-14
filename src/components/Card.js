@@ -1,31 +1,31 @@
 import React from 'react'
 
-export const Card = ({mode}) => {
+export const Card = ({mode,name, population, region, capital, url }) => {
     return (
         <article className={`card ${mode ? 'dark-mode' : ''}`}>
             <div className='card-grid'>
-                <img alt='country-flag' src='https://flagcdn.com/w320/de.png' />
+                <img alt='country-flag' src={url} className='country-flag' />
                 <div className='card-info'>
                     <h2 className='country-name'>
-                        Germany
+                        {name}
                     </h2>
                     <span className='country-data'>
                         <strong className='country-data_label'>
                             Population:
                         </strong>
-                        81.770.900
+                        {population}
                     </span>
                     <span className='country-data'>
                         <strong className='country-data_label'>
                             Region:
                         </strong>
-                        Europe
+                        {region}
                     </span>
                     <span className='country-data'>
                         <strong className='country-data_label'>
                             Capital:
                         </strong>
-                        Berlin
+                        {capital}
                     </span>
                 </div>
             </div>
