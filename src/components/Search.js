@@ -1,18 +1,33 @@
 import React from 'react'
+import { useForm } from '../hooks/useForm';
 
-export const Search = ({mode}) => {
+export const Search = ({ mode }) => {
+    const [formValues, handleInputChange, reset] = useForm({
+        searchText: ''
+    });
+    const { searchText } = formValues;
+
+    const handleSearch = (e) => {
+        e.preventDefault()
+        console.log(searchText)
+        reset()
+    }
     return (
-            <div className={`input-wrapper ${mode ? 'dark-mode' : ''}`}>
-                <input
-                    type='search'
-                    className='input'
-                    placeholder='Search for a country...'
-                />
-                <svg xmlns="http://www.w3.org/2000/svg" className="input-icon" viewBox="0 0 512 512">
-                    <title>Search</title>
-                    <path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="32"></path>
-                    <path fill="none" stroke="currentColor" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="32" d="M338.29 338.29L448 448"></path>
-                </svg>
-            </div>
+        <form onSubmit={handleSearch} className={`input-wrapper ${mode ? 'dark-mode' : ''}`}>
+            <input
+                type='search'
+                className='input'
+                placeholder='Search for a country...'
+                name='searchText'
+                autoComplete='off'
+                value={searchText}
+                onChange={handleInputChange}
+            />
+            <svg xmlns="http://www.w3.org/2000/svg" className="input-icon" viewBox="0 0 512 512">
+                <title>Search</title>
+                <path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="32"></path>
+                <path fill="none" stroke="currentColor" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="32" d="M338.29 338.29L448 448"></path>
+            </svg>
+        </form>
     )
 }

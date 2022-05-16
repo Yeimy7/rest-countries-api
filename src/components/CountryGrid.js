@@ -1,9 +1,7 @@
 import React from 'react'
-import { useFetchAll } from '../hooks/useFetchAll';
 import { Card } from './Card'
 
-export const CountryGrid = ({ mode }) => {
-    const { data, loading } = useFetchAll();
+export const CountryGrid = ({ mode, data, loading }) => {
     return (
         <section className="flags">
             <div className="wrapper">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const Filter = ({ mode }) => {
+export const Filter = ({ mode, setCategory }) => {
     const continents = [
         'Africa',
         'America',
@@ -14,10 +14,10 @@ export const Filter = ({ mode }) => {
     const handleDropdown = () => {
         setClick(!click)
     }
-    const handleContinent=(e)=>{
-        console.log(e.target.innerHTML)
+    const handleContinent = (e) => {
         setContinent(e.target.innerHTML)
         setClick(!click)
+        setCategory(e.target.innerHTML)
     }
     return (
         <div className={`dropdown ${mode ? 'dark-mode' : ''}`}>
