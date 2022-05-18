@@ -1,0 +1,24 @@
+.details{
+    width: 45%;
+}
+.details-title{
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
+}
+.details-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.detail{
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+}
+.detail-label{
+    margin-right: .5rem;
+}
+.detail_countries{
+    display: inline-block;
+}

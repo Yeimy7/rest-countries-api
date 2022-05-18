@@ -1,23 +1,24 @@
-.btn{
-    background-color: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    font-weight: $bold;
-    letter-spacing: 2px;
-    padding-block:1.1rem;
-    padding-inline: 2.4rem;
-    transition: background-color .3s ease;
-    // &:focus{
-    //     outline: none;
-    // }
-    // &:hover{
-    //     background-color: $grey;
-    //     color: $black;
-    // }
+.btn {
+  background-color: $darkBlue;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding-block: 0.8rem;
+  padding-inline: 2rem;
+  border-radius: 0.4rem;
+  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: hsla(207, 14%, 25%, 0.895);
+  }
 }
-// .btn-primary{
-//     background-color: $black
-// }
+.arrow-left {
+  margin-right: 0.5rem;
+}
+.btn_small {
+  padding-block: 0.5rem;
+  padding-inline: 1.7rem;
+  font-size: .9rem;
+  margin: .5rem;
+}

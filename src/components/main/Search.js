@@ -1,15 +1,14 @@
-import React from 'react'
-import { useForm } from '../hooks/useForm';
+import { useForm } from '../../hooks/useForm';
 
-export const Search = ({ mode }) => {
+export const Search = ({ mode , setCategory}) => {
     const [formValues, handleInputChange, reset] = useForm({
         searchText: ''
-    });
+    }, setCategory);
     const { searchText } = formValues;
 
     const handleSearch = (e) => {
         e.preventDefault()
-        console.log(searchText)
+        // setCategory({category:2, param:searchText})
         reset()
     }
     return (

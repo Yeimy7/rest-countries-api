@@ -9,13 +9,15 @@ export const CountryGrid = ({ mode, data, loading }) => {
                     ? <div className={`lds-dual-ring ${mode ? 'dark-mode-spinner' : ''}`}></div>
                     : <div className="flags-grid">
                         {
-                            data.map((country) =>
-                                <Card
-                                    key={country.id}
-                                    mode={mode}
-                                    {...country}
-                                />
-                            )
+                            data !== ''
+                                ? data.map((country) =>
+                                    <Card
+                                        key={country.id}
+                                        mode={mode}
+                                        {...country}
+                                    />
+                                )
+                                : <p className='no-message'>No results</p>
                         }
                     </div>
                 }

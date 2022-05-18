@@ -17,7 +17,7 @@ export const Filter = ({ mode, setCategory }) => {
     const handleContinent = (e) => {
         setContinent(e.target.innerHTML)
         setClick(!click)
-        setCategory(e.target.innerHTML)
+        setCategory({category:1, param:e.target.innerHTML})
     }
     return (
         <div className={`dropdown ${mode ? 'dark-mode' : ''}`}>

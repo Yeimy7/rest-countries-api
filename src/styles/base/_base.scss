@@ -22,10 +22,11 @@ img {
   height: auto;
 }
 
-a {
+a, a:-webkit-any-link, a:visited {
   text-decoration: none;
   outline: none;
   border: none;
+  color:$veryVeryDarkBlue;
 }
 
 ul,
@@ -33,6 +34,9 @@ li {
   list-style-type: none;
 }
 input, select{
+  outline: none;
+}
+button{
   outline: none;
 }
 .wrapper{
@@ -49,6 +53,9 @@ input, select{
 .App.dark-mode {
   background-color: $veryDarkBlue;
   color: $white;
+}
+.no-message{
+  font-size: 1.1rem;
 }
 @media screen and (max-width:550px) {
   .wrapper{

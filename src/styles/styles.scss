@@ -2,7 +2,6 @@
 @import './base/base';
 
 // Components
-// @import './components/buttons';
 @import './layout/header';
 @import './layout/controls';
 @import './layout/main';
@@ -10,4 +9,7 @@
 @import './components/search';
 @import './components/filter';
 @import './layout/flags';
-@import './components/spinner'
+@import './components/spinner';
+@import './components/buttons';
+@import './layout/countryScreen';
+@import './components/countryDetails';
