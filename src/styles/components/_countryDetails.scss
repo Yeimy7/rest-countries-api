@@ -1,6 +1,4 @@
-.details{
-    width: 45%;
-}
+
 .details-title{
     font-size: 1.7rem;
     margin-bottom: 2rem;
@@ -21,4 +19,20 @@
 }
 .detail_countries{
     display: inline-block;
+}
+.border-countries-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 1.5rem;
+}
+@media screen and (max-width:450px) {
+    .details-wrapper{
+        flex-direction: column;
+        gap: 1.5rem;  
+    }
+    .border-countries-wrapper{
+        margin-top: 1.5rem;
+    }
 }

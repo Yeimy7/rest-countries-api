@@ -14,7 +14,7 @@ export const AppRouter = ({ mode, setMode }) => {
       <Header mode={mode} setMode={setMode} />
       <Routes>
         <Route path="/" element={<MainScreen mode={mode} setMode={setMode} />} />
-        <Route path="/country/:countryId" element={<CountryScreen />} />
+        <Route path="/country/:countryId" element={<CountryScreen mode={mode} />} />
       </Routes>
     </Router>
   )

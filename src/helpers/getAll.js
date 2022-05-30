@@ -1,11 +1,21 @@
 export const getAll = async (endpoint) => {
     const { category, param } = endpoint
 
-    const url = category === 0
-        ? `https://restcountries.com/v3.1/all`
-        : category === 1 ? `https://restcountries.com/v3.1/region/${param}`
-            : `https://restcountries.com/v3.1/name/${param}`
-
+    let url;
+    switch (category) {
+        case 1:
+            url = `https://restcountries.com/v3.1/region/${param}`
+            break;
+        case 2:
+            url = `https://restcountries.com/v3.1/name/${param}`
+            break;
+        case 3:
+            url = `https://restcountries.com/v3.1/name/${param}?fullText=true`
+            break;
+        default:
+            url = 'https://restcountries.com/v3.1/all'
+            break;
+    }
 
     const resp = await fetch(url);
     const data = await resp.json();
@@ -16,7 +26,16 @@ export const getAll = async (endpoint) => {
             population: country.population,
             region: country.region,
             capital: country.capital,
-            url: country.flags?.png
+            url: country.flags?.png,
+
+            nativeName: country.name.official,
+            subRegion: country.subregion,
+            borderCountries: country.borders,
+            topLevelDomain: country.tld,
+            currencies: country.currencies,
+            languages: country.languages,
+            flag: country.flags?.svg,
+
         }
 
     })
