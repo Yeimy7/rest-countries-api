@@ -10,7 +10,7 @@ import { Header } from '../components/ui/Header';
 export const AppRouter = ({ mode, setMode }) => {
 
   return (
-    <Router>
+    <Router basename='/rest-countries-api'>
       <Header mode={mode} setMode={setMode} />
       <Routes>
         <Route path="/" element={<MainScreen mode={mode} setMode={setMode} />} />
