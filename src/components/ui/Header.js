@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import modeContext from '../../context/mode/modeContext'
 
-export const Header = ({ mode, setMode }) => {
+export const Header = () => {
+
+    //Obtener el state del modeDark
+    const darkModeContext = useContext(modeContext)
+    const { darkMode, changeDarkMode } = darkModeContext
+    
     const handleMode = () => {
-        setMode(!mode)
+        changeDarkMode()
     }
     return (
-        <header className={`header ${mode ? 'dark-mode' : ''}`}>
+        <header className={`header ${darkMode ? 'dark-mode' : ''}`}>
             <div className='wrapper'>
                 <div className='header-grid'>
                     <h1 className='header-title'>
                         Where in the world?
                     </h1>
                     <div className='header-mode' onClick={handleMode}>
-                        <i className={`fa-${mode ? 'solid' : 'regular'} fa-moon header-icon `}></i>
+                        <i className={`fa-${darkMode ? 'solid' : 'regular'} fa-moon header-icon `}></i>
                         <span> Dark Mode</span>
                     </div>
                 </div>

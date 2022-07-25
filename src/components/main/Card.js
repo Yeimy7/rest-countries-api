@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import modeContext from '../../context/mode/modeContext'
 import { formatNumber } from '../../helpers/formatNumber'
 
-export const Card = ({ mode, name, population, region, capital, url }) => {
-
+export const Card = ({  name, population, region, capital, url }) => {
+    const darkModeContext = useContext(modeContext)
+    const { darkMode} = darkModeContext
+    
     return (
         <Link to={`./country/${name.toLowerCase()}`}>
-            <article className={`card ${mode ? 'dark-mode' : ''}`}>
+            <article className={`card ${darkMode ? 'dark-mode' : ''}`}>
                 <div className='card-grid'>
                     <img alt='country-flag' src={url} className='country-flag' />
                     <div className='card-info'>

@@ -1,6 +1,12 @@
+import { useContext } from 'react';
+import modeContext from '../../context/mode/modeContext';
 import { useForm } from '../../hooks/useForm';
 
-export const Search = ({ mode , setCategory}) => {
+export const Search = ({ setCategory}) => {
+
+    const darkModeContext = useContext(modeContext)
+    const { darkMode } = darkModeContext
+
     const [formValues, handleInputChange, reset] = useForm({
         searchText: ''
     }, setCategory);
@@ -12,7 +18,7 @@ export const Search = ({ mode , setCategory}) => {
         reset()
     }
     return (
-        <form onSubmit={handleSearch} className={`input-wrapper ${mode ? 'dark-mode' : ''}`}>
+        <form onSubmit={handleSearch} className={`input-wrapper ${darkMode ? 'dark-mode' : ''}`}>
             <input
                 type='search'
                 className='input'

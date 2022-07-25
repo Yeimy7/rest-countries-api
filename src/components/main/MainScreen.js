@@ -5,7 +5,8 @@ import { Filter } from "./Filter";
 import { Search } from "./Search";
 
 
-export const MainScreen = ({mode}) => {
+export const MainScreen = () => {
+
 
     const [endpoint, setEndpoint] = useState({
         category: 0,
@@ -18,12 +19,12 @@ export const MainScreen = ({mode}) => {
             <section className='controls'>
                 <div className='wrapper'>
                     <div className='controls-grid'>
-                        <Search mode={mode} setCategory={setEndpoint} />
-                        <Filter mode={mode} setCategory={setEndpoint} />
+                        <Search setCategory={setEndpoint} />
+                        <Filter setCategory={setEndpoint} />
                     </div>
                 </div>
             </section>
-            <CountryGrid mode={mode} data={data} loading={loading} />
+            <CountryGrid data={data} loading={loading} />
         </>
     );
 }

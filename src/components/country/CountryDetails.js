@@ -1,11 +1,10 @@
 import { formatNumber } from '../../helpers/formatNumber';
 import { getValuesOfObject } from '../../helpers/getValuesOfObject';
 import { useGetCountryByName } from '../../hooks/useGetCountryByName';
-
-
 import { Tag } from './Tag'
 
-export const CountryDetails = ({ data, mode }) => {
+export const CountryDetails = ({ data }) => {
+
     const { name, nativeName, population, region, subRegion, capital, borderCountries, topLevelDomain, currencies, languages } = data
     
     let curre
@@ -47,7 +46,7 @@ export const CountryDetails = ({ data, mode }) => {
                     ? <div className='border-countries-wrapper'>
                         <span className='detail detail_countries'><strong className='detail-label'>Border Countries:</strong></span>
                         {
-                            countries.map((country, index) => <Tag key={index} nameCountry={country} mode={mode} />)
+                            countries.map((country, index) => <Tag key={index} nameCountry={country} />)
                         }
                     </div>
                     : ''

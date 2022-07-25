@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import modeContext from '../../context/mode/modeContext'
 
-export const Filter = ({ mode, setCategory }) => {
+export const Filter = ({ setCategory }) => {
+    const darkModeContext = useContext(modeContext)
+    const { darkMode} = darkModeContext
+
     const continents = [
         'Africa',
         'America',
@@ -20,7 +24,7 @@ export const Filter = ({ mode, setCategory }) => {
         setCategory({category:1, param:e.target.innerHTML})
     }
     return (
-        <div className={`dropdown ${mode ? 'dark-mode' : ''}`}>
+        <div className={`dropdown ${darkMode ? 'dark-mode' : ''}`}>
             <div className='dropdown-select'>
                 <span className='select'>{continent}</span>
                 <i className='fa-solid fa-angle-down' onClick={handleDropdown}></i>

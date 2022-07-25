@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -6,16 +7,22 @@ import {
 import { CountryScreen } from '../components/country/CountryScreen';
 import { MainScreen } from '../components/main/MainScreen';
 import { Header } from '../components/ui/Header';
+import modeContext from "../context/mode/modeContext";
 
-export const AppRouter = ({ mode, setMode }) => {
+export const AppRouter = () => {
+  const darkModeContext = useContext(modeContext)
+  const { darkMode} = darkModeContext
 
   return (
-    <Router basename='/rest-countries-api'>
-      <Header mode={mode} setMode={setMode} />
-      <Routes>
-        <Route path="/" element={<MainScreen mode={mode} setMode={setMode} />} />
-        <Route path="/country/:countryId" element={<CountryScreen mode={mode} />} />
-      </Routes>
-    </Router>
+    <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
+      <Router basename='/rest-countries-api'>
+        <Header />
+        <Routes>
+          <Route path="/" element={<MainScreen />} />
+          <Route path="/country/:countryId" element={<CountryScreen />} />
+        </Routes>
+      </Router>
+    </div>
+
   )
 }
