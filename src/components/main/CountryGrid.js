@@ -1,10 +1,14 @@
 import React, { useContext } from 'react'
+import countryContext from '../../context/country/countryContext'
 import modeContext from '../../context/mode/modeContext'
 import { Card } from './Card'
 
-export const CountryGrid = ({  data, loading }) => {
+export const CountryGrid = () => {
     const darkModeContext = useContext(modeContext)
     const { darkMode} = darkModeContext
+
+    const countriesContext = useContext(countryContext)
+    const { countries, loading} = countriesContext
 
     return (
         <section className="flags">
@@ -13,8 +17,8 @@ export const CountryGrid = ({  data, loading }) => {
                     ? <div className={`lds-dual-ring ${darkMode ? 'dark-mode-spinner' : ''}`}></div>
                     : <div className="flags-grid">
                         {
-                            data !== ''
-                                ? data.map((country) =>
+                            countries !== ''
+                                ? countries.map((country) =>
                                     <Card
                                         key={country.id}
                                         {...country}

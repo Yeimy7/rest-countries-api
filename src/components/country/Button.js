@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import modeContext from '../../context/mode/modeContext'
 
-export const Button = ({mode}) => {
+export const Button = () => {
 
   const darkModeContext = useContext(modeContext)
   const { darkMode} = darkModeContext

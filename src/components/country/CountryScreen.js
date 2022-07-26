@@ -1,46 +1,38 @@
-import React, { useContext, useEffect, useState } from 'react'
-import {  useParams } from 'react-router-dom'
+import React, { useContext, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import countryContext from '../../context/country/countryContext'
 import modeContext from '../../context/mode/modeContext'
-import { getAll } from '../../helpers/getAll'
 import { Button } from './Button'
 import { CountryDetails } from './CountryDetails'
 
 
 export const CountryScreen = () => {
   const darkModeContext = useContext(modeContext)
-  const { darkMode} = darkModeContext
+  const { darkMode } = darkModeContext
+
+  const countriesContext = useContext(countryContext)
+  const { country, loading, getCountryName } = countriesContext
 
   const { countryId } = useParams()
-  const [state, setState] = useState({
-    data: [],
-    loading: true
-  });
+
   useEffect(() => {
-    getAll({
-      category: 3,
-      param: countryId
-    })
-      .then(data => {
-        setState({
-          data: data[0],
-          loading: false
-        })
-      })
-  }, [countryId]);
+    getCountryName(countryId)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [countryId])
 
   return (
     <section>
       <div className='wrapper'>
         <div className='button-wrapp'>
-          <Button/>
+          <Button />
         </div>
         <div className='details-wrapp'>
           <div className='image-wrapp'>
-            <img className='country-flag_big' alt='country-flag' src={state.data.flag} />
+            <img className='country-flag_big' alt='country-flag' src={country.flag} />
           </div>
-          {state.loading
+          {loading
             ? <div className={`lds-dual-ring ${darkMode ? 'dark-mode-spinner' : ''}`}></div>
-            : <CountryDetails className='data-wrapp' data={state.data} />
+            : <CountryDetails className='data-wrapp' />
           }
         </div>
 

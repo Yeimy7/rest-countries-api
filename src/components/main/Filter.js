@@ -1,9 +1,13 @@
 import React, { useContext, useState } from 'react'
+import countryContext from '../../context/country/countryContext'
 import modeContext from '../../context/mode/modeContext'
 
-export const Filter = ({ setCategory }) => {
+export const Filter = () => {
     const darkModeContext = useContext(modeContext)
     const { darkMode} = darkModeContext
+
+    const countriesContext = useContext(countryContext)
+    const { getCountriesRegion} = countriesContext
 
     const continents = [
         'Africa',
@@ -21,7 +25,7 @@ export const Filter = ({ setCategory }) => {
     const handleContinent = (e) => {
         setContinent(e.target.innerHTML)
         setClick(!click)
-        setCategory({category:1, param:e.target.innerHTML})
+        getCountriesRegion(e.target.innerHTML)
     }
     return (
         <div className={`dropdown ${darkMode ? 'dark-mode' : ''}`}>

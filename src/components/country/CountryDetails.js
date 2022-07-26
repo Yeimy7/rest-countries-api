@@ -1,12 +1,18 @@
+import { useContext } from 'react';
+import countryContext from '../../context/country/countryContext';
 import { formatNumber } from '../../helpers/formatNumber';
 import { getValuesOfObject } from '../../helpers/getValuesOfObject';
 import { useGetCountryByName } from '../../hooks/useGetCountryByName';
 import { Tag } from './Tag'
 
-export const CountryDetails = ({ data }) => {
+export const CountryDetails = () => {
 
-    const { name, nativeName, population, region, subRegion, capital, borderCountries, topLevelDomain, currencies, languages } = data
+    const countriesContext = useContext(countryContext)
+    const { country } = countriesContext
     
+    const { name, nativeName, population, region, subRegion, capital, borderCountries, topLevelDomain, currencies, languages } = country
+
+
     let curre
     try {
         let currencie = getValuesOfObject(currencies)
@@ -15,11 +21,11 @@ export const CountryDetails = ({ data }) => {
             return name
         })
     } catch (error) {
-        curre=['No currencies']
+        curre = ['No currencies']
     }
 
 
-    const { data: countries } = useGetCountryByName(borderCountries?.join(','))
+    const { data } = useGetCountryByName(borderCountries?.join(','))
 
     const langua = getValuesOfObject(languages)
 
@@ -37,16 +43,16 @@ export const CountryDetails = ({ data }) => {
                 </div>
                 <div>
                     <span className='detail'><strong className='detail-label'>Top Level Domain:</strong> {topLevelDomain}</span>
-                    <span className='detail'><strong className='detail-label'>Currencies:</strong> {curre.join(', ')}</span>
+                    <span className='detail'><strong className='detail-label'>Currencies:</strong> {curre.join(', ')}</span> 
                     <span className='detail'><strong className='detail-label'>Languages:</strong> {langua.join(', ')}</span>
                 </div>
             </div>
             {
-                countries !== null
+                data !== null
                     ? <div className='border-countries-wrapper'>
                         <span className='detail detail_countries'><strong className='detail-label'>Border Countries:</strong></span>
                         {
-                            countries.map((country, index) => <Tag key={index} nameCountry={country} />)
+                            data.map((country, index) => <Tag key={index} nameCountry={country} />)
                         }
                     </div>
                     : ''
