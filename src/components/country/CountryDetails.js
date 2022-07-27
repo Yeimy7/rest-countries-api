@@ -22,7 +22,7 @@ export const CountryDetails = () => {
         }
     }
 
-    const { data } = useGetCountryByName(country.borderCountries?.join(','))
+    const { data } = useGetCountryByName(country?.borderCountries?.join(','))
 
     const getLanguages = (languages) => {
         return getValuesOfObject(languages)
