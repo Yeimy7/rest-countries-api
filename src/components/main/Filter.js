@@ -29,9 +29,9 @@ export const Filter = () => {
     }
     return (
         <div className={`dropdown ${darkMode ? 'dark-mode' : ''}`}>
-            <div className='dropdown-select'>
+            <div className='dropdown-select' onClick={handleDropdown}>
                 <span className='select'>{continent}</span>
-                <i className='fa-solid fa-angle-down' onClick={handleDropdown}></i>
+                <i className='fa-solid fa-angle-down' ></i>
             </div>
             <div className={`dropdown-list ${click ? 'click' : ''}`}>
                 {

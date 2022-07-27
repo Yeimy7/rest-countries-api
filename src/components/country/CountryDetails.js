@@ -9,54 +9,60 @@ export const CountryDetails = () => {
 
     const countriesContext = useContext(countryContext)
     const { country } = countriesContext
-    
-    const { name, nativeName, population, region, subRegion, capital, borderCountries, topLevelDomain, currencies, languages } = country
 
-
-    let curre
-    try {
-        let currencie = getValuesOfObject(currencies)
-        curre = currencie.map(e => {
-            let { name } = e
-            return name
-        })
-    } catch (error) {
-        curre = ['No currencies']
+    const getCurrencies = (data) => {
+        try {
+            let currencie = getValuesOfObject(data)
+            return currencie.map(e => {
+                let { name } = e
+                return name
+            })
+        } catch (error) {
+            return ['No currencies']
+        }
     }
 
+    const { data } = useGetCountryByName(country.borderCountries?.join(','))
 
-    const { data } = useGetCountryByName(borderCountries?.join(','))
+    const getLanguages = (languages) => {
+        return getValuesOfObject(languages)
+    }
 
-    const langua = getValuesOfObject(languages)
 
 
     return (
         <article className='details'>
-            <h1 className='details-title'>{name}</h1>
-            <div className='details-wrapper'>
-                <div>
-                    <span className='detail'><strong className='detail-label'>Native Name:</strong> {nativeName}</span>
-                    <span className='detail'><strong className='detail-label'>Population:</strong> {formatNumber(population)}</span>
-                    <span className='detail'><strong className='detail-label'>Region:</strong> {region}</span>
-                    <span className='detail'><strong className='detail-label'>Sub Region:</strong> {subRegion}</span>
-                    <span className='detail'><strong className='detail-label'>Capital:</strong> {capital}</span>
-                </div>
-                <div>
-                    <span className='detail'><strong className='detail-label'>Top Level Domain:</strong> {topLevelDomain}</span>
-                    <span className='detail'><strong className='detail-label'>Currencies:</strong> {curre.join(', ')}</span> 
-                    <span className='detail'><strong className='detail-label'>Languages:</strong> {langua.join(', ')}</span>
-                </div>
-            </div>
-            {
-                data !== null
-                    ? <div className='border-countries-wrapper'>
-                        <span className='detail detail_countries'><strong className='detail-label'>Border Countries:</strong></span>
-                        {
-                            data.map((country, index) => <Tag key={index} nameCountry={country} />)
-                        }
+            {country && (
+                <>
+                    <h1 className='details-title'>{country.name}</h1>
+                    <div className='details-wrapper'>
+                        <div>
+                            <span className='detail'><strong className='detail-label'>Native Name:</strong> {country.nativeName}</span>
+                            <span className='detail'><strong className='detail-label'>Population:</strong> {formatNumber(country.population)}</span>
+                            <span className='detail'><strong className='detail-label'>Region:</strong> {country.region}</span>
+                            <span className='detail'><strong className='detail-label'>Sub Region:</strong> {country.subRegion}</span>
+                            <span className='detail'><strong className='detail-label'>Capital:</strong> {country.capital}</span>
+                        </div>
+                        <div>
+                            <span className='detail'><strong className='detail-label'>Top Level Domain:</strong> {country.topLevelDomain}</span>
+                            <span className='detail'><strong className='detail-label'>Currencies:</strong> {getCurrencies(country.currencies).join(', ')}</span>
+                            <span className='detail'><strong className='detail-label'>Languages:</strong> {getLanguages(country.languages).join(', ')}</span>
+                        </div>
                     </div>
-                    : ''
-            }
+                    {
+                        data !== null
+                            ? <div className='border-countries-wrapper'>
+                                <span className='detail detail_countries'><strong className='detail-label'>Border Countries:</strong></span>
+                                {
+                                    data.map((country, index) => <Tag key={index} nameCountry={country} />)
+                                }
+                            </div>
+                            : ''
+                    }
+                </>
+            )}
+
+
 
         </article>
     )

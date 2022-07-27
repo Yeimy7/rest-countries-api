@@ -27,7 +27,7 @@ export const countryReducer = (state = {}, action) => {
         case CHANGE_LOADING:
             return {
                 ...state,
-                loading: false
+                loading: true
             }
 
         default:

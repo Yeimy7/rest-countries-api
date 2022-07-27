@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { GET_COUNTRIES, GET_COUNTRIES_ERROR, GET_COUNTRIES_NAME, GET_COUNTRIES_REGION, GET_COUNTRY_NAME } from "../../types";
+import { CHANGE_LOADING, GET_COUNTRIES, GET_COUNTRIES_ERROR, GET_COUNTRIES_NAME, GET_COUNTRIES_REGION, GET_COUNTRY_NAME } from "../../types";
 import countryContext from "./countryContext";
 import { countryReducer } from "./countryReducer";
 
@@ -139,7 +139,6 @@ const CountryState = props => {
         try {
             const resp = await fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`);
             const data = await resp.json();  
-            console.log(data[0].name)          
             const country = resp.status !== 404 ?
                  {
                     id: data[0].idd.suffixes + data[0].ccn3,
@@ -174,7 +173,11 @@ const CountryState = props => {
             })
         }
     }
-
+    const changeLoading=()=>{
+        dispatch({
+            type: CHANGE_LOADING,
+        })
+    }
 
     return (
         <countryContext.Provider
@@ -185,7 +188,8 @@ const CountryState = props => {
                 getCountries,
                 getCountriesName,
                 getCountriesRegion, 
-                getCountryName
+                getCountryName,
+                changeLoading
             }}
         >
             {props.children}

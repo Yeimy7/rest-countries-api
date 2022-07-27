@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useLayoutEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import countryContext from '../../context/country/countryContext'
 import modeContext from '../../context/mode/modeContext'
@@ -11,14 +11,19 @@ export const CountryScreen = () => {
   const { darkMode } = darkModeContext
 
   const countriesContext = useContext(countryContext)
-  const { country, loading, getCountryName } = countriesContext
+  const { country, loading, getCountryName, changeLoading } = countriesContext
 
   const { countryId } = useParams()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     getCountryName(countryId)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => {
+      changeLoading()
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countryId])
+
+
 
   return (
     <section>
@@ -28,11 +33,11 @@ export const CountryScreen = () => {
         </div>
         <div className='details-wrapp'>
           <div className='image-wrapp'>
-            <img className='country-flag_big' alt='country-flag' src={country.flag} />
+            <img className='country-flag_big' alt='country-flag' src={country?.flag} />
           </div>
           {loading
             ? <div className={`lds-dual-ring ${darkMode ? 'dark-mode-spinner' : ''}`}></div>
-            : <CountryDetails className='data-wrapp' />
+            : <CountryDetails className='data-wrapp' country={country} />
           }
         </div>
 
